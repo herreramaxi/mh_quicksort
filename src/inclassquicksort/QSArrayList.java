@@ -26,7 +26,8 @@ public class QSArrayList<E> extends ArrayList<E> {
         }
     }
 
-    protected int partitionFirstElementPivot(int start, int end) {
+    //Hoare partition scheme
+    private int partitionFirstElementPivot(int start, int end) {
         int down = end;
         E pivot = get(start);
         int up = start;
@@ -62,7 +63,8 @@ public class QSArrayList<E> extends ArrayList<E> {
         }
     }
 
-    protected int partitionMiddleElementPivot(int start, int end) {
+    //Hoare partition scheme
+    private int partitionMiddleElementPivot(int start, int end) {
         int down = end;
         int mid = (start + end) / 2;
 
@@ -100,7 +102,6 @@ public class QSArrayList<E> extends ArrayList<E> {
         }
     }
 
-    //pivots at the end 
     //Lomuto partition scheme
     public int partitionLomutoLastElementPivot(int low, int high) {
         E pivot = get(high);
@@ -125,6 +126,7 @@ public class QSArrayList<E> extends ArrayList<E> {
         swap(pivot, high);
     }
 
+    //Lomuto partition scheme
     public int partitionLomutoRandom(int low, int high) {
         this.random(low, high);
         E pivot = get(high);
@@ -133,7 +135,7 @@ public class QSArrayList<E> extends ArrayList<E> {
         for (int j = low; j < high; j++) {
             if (((Comparable) get(j)).compareTo((Comparable) pivot) <= 0) {
                 i++;
-                //swap the elements           
+
                 swap(i, j);
             }
         }
@@ -181,6 +183,7 @@ public class QSArrayList<E> extends ArrayList<E> {
         return right - 1;
     }
 
+    //Hoare partition scheme
     private int partitionIt(int left, int right, int pivot) {
         int leftPtr = left;
         int rightPtr = right - 1;
